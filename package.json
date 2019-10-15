@@ -1,6 +1,6 @@
 {
     "name": "my-webpack-test",
-    "version": "1.1.9",
+    "version": "1.2.9",
     "description": "",
     "scripts": {
         "start": "npm run dev",
@@ -57,6 +57,7 @@
         "output": {
             "filename": "123.js"
         },
-        "plugins": []
+        "plugins": [],
+        "fileEntry": "./src/index.js"
     }
 }
