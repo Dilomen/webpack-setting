@@ -36,5 +36,31 @@ yarn add my-webpack-test
     "plugins": [], // 插件
     "providePlugin": {}, // 自动引入
     "rules": [], // 模块
+    "alias": {} // 别名
 }
+```
+
+已经配置的别名和自动导入：
+
+```js
+new webpack.ProvidePlugin({
+  React: "react",
+  ReactDOM: "react-dom",
+  PureComponent: ["react", "PureComponent"],
+  Component: ["react", "Component"],
+  Classnames: ["classnames"],
+  ...providePlugin
+});
+```
+
+```js
+  alias: {
+      'src': path.resolve(process.cwd(), "./src"),
+      'components': path.resolve(process.cwd(), "./src/components"),
+      'utils': path.resolve(process.cwd(), "./src/utils"),
+      'assets': path.resolve(process.cwd(), "./src/assets"),
+      'common': path.resolve(process.cwd(), "./src/common"),
+      'base': path.resolve(process.cwd(), "./src/base"),
+      ...alias
+    }
 ```
