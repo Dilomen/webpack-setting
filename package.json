@@ -1,6 +1,6 @@
 {
   "name": "webpack-setting",
-  "version": "1.0.5",
+  "version": "1.0.10",
   "description": "webpack的统一配置，可应用不同的项目搭建",
   "scripts": {
     "start": "npm run dev",
@@ -40,11 +40,13 @@
     "@babel/preset-env": "^7.5.5",
     "@babel/preset-react": "^7.0.0",
     "@babel/runtime": "^7.8.3",
+    "@teamsupercell/typings-for-css-modules-loader": "^2.1.0",
     "@types/jest": "^24.0.18",
     "@types/react": "^16.9.2",
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
     "babel-loader": "^8.0.6",
+    "classnames": "^2.2.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
     "ejs": "^3.0.1",
@@ -70,10 +72,7 @@
     "url-loader": "^2.1.0",
     "webpack": "^4.41.2",
     "webpack-cli": "^3.3.7",
-    "webpack-dev-server": "^3.8.1"
-  },
-  "config": {},
-  "devDependencies": {
+    "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.2.2"
   }
 }

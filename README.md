@@ -1,4 +1,5 @@
 ## 介绍
+
 将 webpack 上传到 npm，使用依赖来统一配置
 
 ### 安装命令
@@ -17,14 +18,14 @@ yarn add webpack-setting
 }
 ```
 
-### 设置 package.json 中的 config（没有就新建）
+### 设置 package.json 中的 config
 
 如果 webpack 中 entry 导入的文件不是你的文件，可以通过设置你想导入文件的路径  
 如:
 
 ```js
 "config": {
-    "fileEntry": "./src/index.jsx" // webapck输入配置
+    "entry": "./src/index.jsx" // webapck输入配置
 }
 ```
 
@@ -43,15 +44,16 @@ yarn add webpack-setting
 }
 ```
 
-已经配置的别名和自动导入,可通过config中的providePlugin和alias进行修改和添加：
+已经配置的别名和自动导入,可通过 config 中的 providePlugin 和 alias 进行修改和添加：
 
 ```js
 new webpack.ProvidePlugin({
-  React: "react",
-  ReactDOM: "react-dom",
-  PureComponent: ["react", "PureComponent"],
-  Component: ["react", "Component"],
-  Classnames: ["classnames"],
+  React: 'react',
+  ReactDOM: 'react-dom',
+  Fragment: ['react', 'Fragment'],
+  PureComponent: ['react', 'PureComponent'],
+  Component: ['react', 'Component'],
+  Classnames: ['classnames/bind']
   ...providePlugin
 });
 ```
@@ -66,4 +68,11 @@ alias: {
   'base': path.resolve(process.cwd(), "./src/base"),
   ...alias
 }
+```
+
+对于svg文件的处理说明：
+引入的svg图片都会经url-loader处理
+由于有些插件引入需要将svg文件配置为raw-loader处理，可采取以下方式引入(加?inline)，这样就会让引入的svg文件走raw-loader的处理
+```js
+import ICON from 'icon.svg?inline'
 ```
