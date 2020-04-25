@@ -1,6 +1,6 @@
 {
   "name": "webpack-setting",
-  "version": "1.0.10",
+  "version": "1.0.11",
   "description": "webpack的统一配置，可应用不同的项目搭建",
   "scripts": {
     "start": "npm run dev",
@@ -46,6 +46,7 @@
     "@types/react-dom": "^16.9.0",
     "@types/react-test-renderer": "^16.9.0",
     "babel-loader": "^8.0.6",
+    "cache-loader": "^4.1.0",
     "classnames": "^2.2.6",
     "clean-webpack-plugin": "^3.0.0",
     "css-loader": "^3.2.0",
@@ -66,6 +67,7 @@
     "sass-loader": "^8.0.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.0",
+    "thread-loader": "^2.1.3",
     "ts-loader": "^6.0.4",
     "typescript": "^3.6.2",
     "uglifyjs-webpack-plugin": "^2.2.0",
@@ -74,5 +76,8 @@
     "webpack-cli": "^3.3.7",
     "webpack-dev-server": "^3.8.1",
     "webpack-merge": "^4.2.2"
+  },
+  "devDependencies": {
+    "speed-measure-webpack-plugin": "^1.3.3"
   }
 }

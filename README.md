@@ -18,6 +18,14 @@ yarn add webpack-setting
 }
 ```
 
+### 可在更目录下配置自定义的 webpack 配置
+
+可以在根目录下创建以下文件（具体配置信息需要符合webpack规则）
+
+- webpack.config.js 将会覆盖默认的**统一**配置
+- webpack.dev.js 将会覆盖默认的**开发**配置
+- webpack.prod.js 将会覆盖默认的**生产**配置
+
 ### 设置 package.json 中的 config
 
 如果 webpack 中 entry 导入的文件不是你的文件，可以通过设置你想导入文件的路径  
@@ -70,9 +78,10 @@ alias: {
 }
 ```
 
-对于svg文件的处理说明：
-引入的svg图片都会经url-loader处理
-由于有些插件引入需要将svg文件配置为raw-loader处理，可采取以下方式引入(加?inline)，这样就会让引入的svg文件走raw-loader的处理
+对于 svg 文件的处理说明：
+引入的 svg 图片都会经 url-loader 处理
+由于有些插件引入需要将 svg 文件配置为 raw-loader 处理，可采取以下方式引入(加?inline)，这样就会让引入的 svg 文件走 raw-loader 的处理
+
 ```js
-import ICON from 'icon.svg?inline'
+import ICON from "icon.svg?inline";
 ```

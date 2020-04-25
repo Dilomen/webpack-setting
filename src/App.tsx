@@ -1,7 +1,7 @@
 import React from 'react'
 import Classnames from 'classnames/bind'
-import css from './index.scss'
-// const css = require('./index.css')
+// import css from './index.css'
+const css = require('./index.css')
 const cs = Classnames.bind(css)
 class App extends React.Component {
   render() { 
