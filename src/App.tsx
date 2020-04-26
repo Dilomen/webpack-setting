@@ -5,7 +5,7 @@ const css = require('./index.css')
 const cs = Classnames.bind(css)
 class App extends React.Component {
   render() { 
-    return <p className={cs("text")}>2345hgh6789</p>
+    return <p className={cs("text")}>2dh67dsds89</p>
   }
 }
  
