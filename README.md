@@ -26,18 +26,21 @@ yarn add webpack-setting
 - webpack.dev.js 将会覆盖默认的**开发**配置
 - webpack.prod.js 将会覆盖默认的**生产**配置
 
-> 由于 webpack-merge 不能覆盖默认配置的 rule 和 plugins,所以抛出一个 changeDefault 方法，可以改变默认配置，将需要merge的内容放到options
+> 由于 webpack-merge 不能覆盖默认配置的 rule 和 plugins,所以直接抛出webpackConfig方法来进行配置
 
 ```js
-const changeDefault = function(options) {
-  console.log("options", options);
-  return { ...options };
-};
-
 module.exports = {
-  options: {},
-  changeDefault,
-};
+  webpackConfig(config) {
+    // 如果是entry之类的可以直接修改
+    config.entry = '',
+    // plugin和rule可以通过splice替换或者push添加
+    config.plugins.splice(1,1,new MiniCssExtractPlugin({
+      filename: "[name]/[name].css",
+      chunkFilename: "[name].css",
+    }))
+    config.plugins.module.rules.push({test: /配置规则/})
+  return config
+}
 ```
 
 ### 设置 package.json 中的 config
