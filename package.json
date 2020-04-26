@@ -1,6 +1,6 @@
 {
   "name": "webpack-setting",
-  "version": "1.1.6",
+  "version": "1.1.7",
   "description": "webpack的统一配置，可应用不同的项目搭建",
   "scripts": {
     "start": "npm run dev",

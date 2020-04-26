@@ -26,21 +26,26 @@ yarn add webpack-setting
 - webpack.dev.js 将会覆盖默认的**开发**配置
 - webpack.prod.js 将会覆盖默认的**生产**配置
 
-> 由于 webpack-merge 不能覆盖默认配置的 rule 和 plugins,所以直接抛出webpackConfig方法来进行配置
+> 抛出webpackConfig方法来进行配置，由于不能对默认plugin进行覆盖，所以导出HTMLExtractConfig，CssExtractConfig这个配置项可分别对html-webpack-plugin和mini-css-extract-plugin进行配置（只存在于生产环境，所以请编写在webpack.prod.js文件，其余文件暂只支持webpackConfig方法配置）
 
 ```js
 module.exports = {
+  HTMLExtractConfig: {},
+  CssExtractConfig: {
+    filename: "[name]/[name].css",
+    chunkFilename: "[name].css",
+  },
   webpackConfig(config) {
-    // 如果是entry之类的可以直接修改
-    config.entry = '',
-    // plugin和rule可以通过splice替换或者push添加
-    config.plugins.splice(1,1,new MiniCssExtractPlugin({
-      filename: "[name]/[name].css",
-      chunkFilename: "[name].css",
-    }))
-    config.plugins.module.rules.push({test: /配置规则/})
-  return config
-}
+    config.entry = {
+      App: './src/App.tsx',
+      index: "./src/index.js",
+    }
+    config.output = {
+      path: path.resolve(process.cwd(), "./build"),
+      filename: "[name]/[name].js"
+    }
+  }
+};
 ```
 
 ### 设置 package.json 中的 config
