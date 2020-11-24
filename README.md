@@ -18,67 +18,37 @@ yarn add webpack-setting
 }
 ```
 
-### 可在更目录下配置自定义的 webpack 配置
+### 可在根目录下配置自定义的 webpack 配置
 
-可以在根目录下创建以下文件（具体配置信息需要符合webpack规则）
+为了降低学习成本，及更改配置项的灵活性，将采用webpack-chain插件，可以以以下两种方式进行webpack配置的修改
 
-- webpack.config.js 将会覆盖默认的**统一**配置
-- webpack.dev.js 将会覆盖默认的**开发**配置
-- webpack.prod.js 将会覆盖默认的**生产**配置
+- 直接对象merge覆盖
+- 使用webpack-chain的方式  
+<https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans?spm=a2c6h.14275010.0.0.3d7b22efZu5PJT>
 
-### 设置 package.json 中的 config
+需要在根目录下建一个serein.config.js的文件
 
-如果 webpack 中 entry 导入的文件不是你的文件，可以通过设置你想导入文件的路径  
-如:
+chainWebpack > configureWebpack，即chainWebpack在configureWebpack之后执行
 
 ```js
-"config": {
-    "entry": "./src/index.jsx" // webapck输入配置
+module.exports = {
+  // 直接返回一个webpack配置对象，该对象会和已有的对象进行合并
+  configureWebpack: (config) => {
+    if (process.env.NODE_ENV === 'production') {
+      return {}
+    } else {
+      return {}
+    }
+  },
+  // 对已有配置通过webpack-chain的规则进行修改
+  chainWebpack: (config) => {
+    config.resolve.alias.set('src', './src/')
+  }
 }
 ```
 
-也可以自定义设置 config 的以下属性来对 webpack 进行配置
+#### 对于 svg 文件的处理说明
 
-```js
-"config": {
-    "devServer": {}, // webpack-dev-server配置
-    "output": {}, // webpack输出配置
-    "plugins": [], // 插件
-    "providePlugin": {}, // 自动引入
-    "rules": [], // 模块
-    "alias": {}, // 别名
-    "CDN_CSS": [], // 导入css的CDN路径，在最外层没有index.html的情况下有效
-    "CDN_JS": [] // 导入js的CDN路径，在最外层没有index.html的情况下有效
-}
-```
-
-已经配置的别名和自动导入,可通过 config 中的 providePlugin 和 alias 进行修改和添加：
-
-```js
-new webpack.ProvidePlugin({
-  React: 'react',
-  ReactDOM: 'react-dom',
-  Fragment: ['react', 'Fragment'],
-  PureComponent: ['react', 'PureComponent'],
-  Component: ['react', 'Component'],
-  Classnames: ['classnames/bind']
-  ...providePlugin
-});
-```
-
-```js
-alias: {
-  'src': path.resolve(process.cwd(), "./src"),
-  'components': path.resolve(process.cwd(), "./src/components"),
-  'utils': path.resolve(process.cwd(), "./src/utils"),
-  'assets': path.resolve(process.cwd(), "./src/assets"),
-  'common': path.resolve(process.cwd(), "./src/common"),
-  'base': path.resolve(process.cwd(), "./src/base"),
-  ...alias
-}
-```
-
-对于 svg 文件的处理说明：
 引入的 svg 图片都会经 url-loader 处理
 由于有些插件引入需要将 svg 文件配置为 raw-loader 处理，可采取以下方式引入(加?inline)，这样就会让引入的 svg 文件走 raw-loader 的处理
 
