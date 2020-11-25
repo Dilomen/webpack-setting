@@ -1,4 +1,6 @@
 module.exports = {
+  CDNJS: [],
+  CDNCSS: [],
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
       return {}

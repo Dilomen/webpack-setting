@@ -18,6 +18,13 @@ yarn add webpack-setting
 }
 ```
 
+#### 支持对配置文件的路径进行自定义
+
+```js
+"dev": "NODE_ENV=development mywebpack ./config/serein.config.js",
+"build": "NODE_ENV=production mywebpack ./config/serein.config.js"
+```
+
 ### 可在根目录下配置自定义的 webpack 配置
 
 为了降低学习成本，及更改配置项的灵活性，将采用webpack-chain插件，可以以以下两种方式进行webpack配置的修改
