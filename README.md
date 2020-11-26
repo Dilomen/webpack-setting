@@ -39,6 +39,13 @@ chainWebpack > configureWebpack，即chainWebpack在configureWebpack之后执行
 
 ```js
 module.exports = {
+  CDNJS: [], // 支持对CDN的加入，不要在根目录建html文件，即可自动化生成带有CDN的html文件
+  CDNCSS: [],
+  config: {
+    framework: 'react', // default: react 暂只支持 react | vue
+    ts: false, // default: false
+    css: ['less', 'scss'] // default: [] 暂只支持 less | scss
+  },
   // 直接返回一个webpack配置对象，该对象会和已有的对象进行合并
   configureWebpack: (config) => {
     if (process.env.NODE_ENV === 'production') {
