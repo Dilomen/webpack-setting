@@ -1,0 +1,15 @@
+{
+  "name": "example",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENV=development mywebpack ./config/serein.config.js",
+    "build": "NODE_ENV=production mywebpack ./config/serein.config.js"
+  },
+  "devDependencies": {
+    "node-sass": "^5.0.0",
+    "sass-loader": "^10.1.0"
+  }
+}
