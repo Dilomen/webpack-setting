@@ -1,0 +1,18 @@
+{
+  "name": "vue-demo",
+  "version": "1.0.0",
+  "main": "index.js",
+  "license": "MIT",
+  "scripts": {
+    "start": "npm run dev",
+    "dev": "NODE_ENV=development mywebpack",
+    "build": "NODE_ENV=production mywebpack"
+  },
+  "devDependencies": {
+    "vue-template-compiler": "^2.6.12"
+  },
+  "dependencies": {
+    "vue": "2.6.12",
+    "vue-loader": "^15.9.5"
+  }
+}

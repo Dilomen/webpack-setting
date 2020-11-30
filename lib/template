@@ -5,14 +5,14 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title></title>
-    <% if (CDN_CSS && Array.isArray(CDN_CSS) && CDN_CSS.length > 0) { %>
-      <%- CDN_CSS.map(item => `<script src="${item}"></script>`).join('') %>
+    <% if (CDNCSS && Array.isArray(CDNCSS) && CDNCSS.length > 0) { %>
+      <%- CDNCSS.map(item => `<script src="${item}"></script>`).join('') %>
     <% } %>
 </head>
 <body>
     <div id="root"></div>
-     <% if (CDN_JS && Array.isArray(CDN_JS) && CDN_JS.length > 0) { %>
-      <%- CDN_JS.map(item => `<script src="${item}"></script>`).join('') %>
+     <% if (CDNJS && Array.isArray(CDNJS) && CDNJS.length > 0) { %>
+      <%- CDNJS.map(item => `<script src="${item}"></script>`).join('') %>
     <% } %>
 </body>
 </html>

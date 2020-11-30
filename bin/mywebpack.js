@@ -1,6 +1,7 @@
 #!/usr/bin/env node
 // const path = require('path')
 // const exec = require('child_process').execSync
+// exec('yarn add vue-loader')
 const configPath = process.argv[2]
 if (process.env.NODE_ENV === 'development') {
 //   loadDependency(configPath).then(() => {

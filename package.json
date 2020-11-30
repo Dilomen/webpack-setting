@@ -1,13 +1,7 @@
 {
   "name": "webpack-setting",
-  "version": "1.2.4",
+  "version": "1.2.5",
   "description": "webpack的统一配置，可应用不同的项目搭建",
-  "scripts": {
-    "start": "npm run dev",
-    "dev": "NODE_ENV=development node ./bin/mywebpack.js",
-    "build": "NODE_ENV=production node ./bin/mywebpack.js",
-    "test": "mocha"
-  },
   "files": [
     "lib",
     "bin"
@@ -53,7 +47,7 @@
     "ejs": "^3.0.1",
     "extract-text-webpack-plugin": "^3.0.2",
     "file-loader": "^4.2.0",
-    "html-webpack-plugin": "^3.2.0",
+    "html-webpack-plugin": "^4.5.0",
     "mini-css-extract-plugin": "^0.8.0",
     "optimize-css-assets-webpack-plugin": "^5.0.3",
     "ora": "^5.1.0",
@@ -64,9 +58,9 @@
     "react-dev-utils": "^9.1.0",
     "source-map-loader": "^0.2.4",
     "style-loader": "^1.0.0",
+    "terser-webpack-plugin": "^5.0.3",
     "thread-loader": "^2.1.3",
-    "ts-loader": "^6.0.4",
-    "typescript": "^3.6.2",
+    "uglify-js": "^3.12.0",
     "uglifyjs-webpack-plugin": "^2.2.0",
     "url-loader": "^2.1.0",
     "webpack": "^4.41.2",
