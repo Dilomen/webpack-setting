@@ -30,8 +30,7 @@ yarn add webpack-setting
 为了降低学习成本，及更改配置项的灵活性，将采用webpack-chain插件，可以以以下两种方式进行webpack配置的修改
 
 - 直接对象merge覆盖
-- 使用webpack-chain的方式  
-<https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans?spm=a2c6h.14275010.0.0.3d7b22efZu5PJT>
+- 使用[webpack-chain](https://github.com/Yatoo2018/webpack-chain/tree/zh-cmn-Hans?spm=a2c6h.14275010.0.0.3d7b22efZu5PJT)的方式  
 
 需要在根目录下建一个serein.config.js的文件
 
