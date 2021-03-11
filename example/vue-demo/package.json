@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run dev",
-    "dev": "NODE_ENV=development mywebpack",
-    "build": "NODE_ENV=production mywebpack"
+    "dev": "serein run",
+    "build": "serein build"
   },
   "devDependencies": {
     "vue-template-compiler": "^2.6.12"

@@ -5,8 +5,8 @@
   "license": "MIT",
   "scripts": {
     "start": "npm run dev",
-    "dev": "NODE_ENV=development mywebpack ./config/serein.config.js",
-    "build": "NODE_ENV=production mywebpack ./config/serein.config.js"
+    "dev": "serein run -c ./config/serein.config.js",
+    "build": "serein build -c ./config/serein.config.js"
   },
   "devDependencies": {
     "node-sass": "^5.0.0",
