@@ -3,6 +3,8 @@ const { Command } = require('commander')
 const program = new Command()
 const configPkg = require('../package.json')
 const inquirer = require('inquirer')
+const path = require('path')
+const { execute } = require('../lib/util')
 
 program
   .version(configPkg.version || '1.0.0')
@@ -46,6 +48,48 @@ program
       require('../lib/build')(params)
     })
   })
+
+program
+  .command('dep [dep]')
+  .description('View all dependent versions or view specified dependencies')
+  .action(async (dep) => {
+    if (dep) {
+      if (configPkg.dependencies[dep]) {
+        console.log(`dependencies:\n  ${dep}: ${configPkg.dependencies[dep]}`)
+      } else if (configPkg.devDependencies[dep]) {
+        console.log(`devDependencies:\n  ${dep}: ${configPkg.devDependencies[dep]}`)
+      }
+      return
+    }
+    Object.keys(configPkg.dependencies).forEach(key => {
+      console.log(`   ${key}: ${configPkg.dependencies[key]}`)
+    })
+    console.log('\ndevDependencies')
+    Object.keys(configPkg.devDependencies).forEach(key => {
+      console.log(`   ${key}: ${configPkg.devDependencies[key]}`)
+    })
+  })
+
+program
+  .command('install <dep...>')
+  .description('Install a specified dependency')
+  .option('-D, --save-dev', 'Add a devDependencies')
+  .option('-S, --save', 'Add a dependency')
+  .action(async (deps, options) => {
+    let option = ''
+    if (options.saveDev) {
+      option = '--save-dev'
+    } else if (options.save) {
+      option = '--save'
+    }
+    deps = deps.reduce((str, dep) => {
+      str += ' ' + dep
+      return str
+    }, '')
+    const currentCwdPath = path.resolve(__dirname, '../')
+    execute(`cd ${currentCwdPath} && npm install ${deps} ${option}`, {}, null, (msg) => { console.log(msg) }).then().catch()
+  })
+
 program.parse(process.argv)
 
 function chooseFramework (options, fn) {

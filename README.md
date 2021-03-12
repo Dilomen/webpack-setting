@@ -14,7 +14,7 @@ npm install -g webpack-setting
 yarn global add webpack-setting
 ```
 
-直接命令行执行指定的入口文件
+#### 直接命令行执行指定的入口文件
 
 ```bash
 serein run -e ./index.js
@@ -33,6 +33,34 @@ serein run -e ./index.js
 | -e   | --entry \<file>               | 入口文件路径              |
 | -c   | --config \<path> \<framework> | serein.config.js 文件路径 |
 | -ts  | --typescript                  | 是否支持 ts               |
+
+#### 直接进行打包任务
+
+```bash
+serein run -e ./index.js
+```
+
+#### 可以查看当前工具中的依赖及版本
+
+```bash
+serein dep
+```
+
+#### 也可以指定查看一个依赖的版本号
+
+```bash
+serein dep vue
+```
+
+#### 可以安装相应的依赖，规则和 npm 一致，只有--save-dev 和--save
+
+```bash
+serein install vue
+```
+
+```bash
+serein install vue --save-dev
+```
 
 ## 项目内安装
 
