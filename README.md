@@ -14,6 +14,10 @@ npm install -g webpack-setting
 yarn global add webpack-setting
 ```
 
+可以直接使用指令执行对应的文件，无需再次安装项目环境
+
+![指令图解](./static/command.svg)
+
 #### 直接命令行执行指定的入口文件
 
 ```bash
@@ -27,9 +31,9 @@ serein run -e ./index.js
 可通过-h 参数参看
 
 | 简写 | 全称                          | 作用                      |
-| ---- | ----------------------------- | ------------------------- | --- |
+| ---- | ----------------------------- | ------------------------- |
 | -V   | --version                     | 版本号                    |
-| -f   | --framework \<framework>      | 选择的框架 react          | vue |
+| -f   | --framework \<framework>      | 选择的框架 react \| vue   |
 | -e   | --entry \<file>               | 入口文件路径              |
 | -c   | --config \<path> \<framework> | serein.config.js 文件路径 |
 | -ts  | --typescript                  | 是否支持 ts               |
