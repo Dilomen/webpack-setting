@@ -16,7 +16,7 @@ yarn global add webpack-setting
 
 可以直接使用指令执行对应的文件，无需再次安装项目环境
 
-![指令图解](./static/command.svg)
+![指令图解](./static/command.png)
 
 #### 直接命令行执行指定的入口文件
 
@@ -83,16 +83,16 @@ yarn add webpack-setting
 ```js
 "scripts": {
     "start": "npm run dev",
-    "dev": "NODE_ENV=development mywebpack",
-    "build": "NODE_ENV=production mywebpack"
+    "dev": "serein run",
+    "build": "serein build"
 }
 ```
 
 #### 支持对配置文件的路径进行自定义
 
 ```js
-"dev": "NODE_ENV=development mywebpack ./config/serein.config.js",
-"build": "NODE_ENV=production mywebpack ./config/serein.config.js"
+"dev": "serein run -c ./config/serein.config.js",
+"build": "serein build -c ./config/serein.config.js"
 ```
 
 ### 可在根目录下配置自定义的 webpack 配置
