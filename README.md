@@ -133,12 +133,3 @@ module.exports = {
 ### 关于 CDN 的引入
 
 如果使用配置中的 CDN 引入，请不要在根目录下建 html 文件（该项目会根据你的配置生成 html 文件），然后你就可以在开发中直接使用 CDN 的相关内容，不需要再引入 npm 包，从而大大减少项目的体积
-
-#### 对于 svg 文件的处理说明
-
-引入的 svg 图片都会经 url-loader 处理
-由于有些插件引入需要将 svg 文件配置为 raw-loader 处理，可采取以下方式引入(加?inline)，这样就会让引入的 svg 文件走 raw-loader 的处理
-
-```js
-import ICON from 'icon.svg?inline';
-```
