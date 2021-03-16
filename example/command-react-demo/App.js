@@ -1,5 +1,4 @@
 import './index.css'
-
 export default function App () {
-  return <button>Hello</button>
+  return <button>Hello World</button>
 }
