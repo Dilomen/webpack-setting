@@ -1,6 +1,6 @@
 {
   "name": "webpack-setting",
-  "version": "1.4.7",
+  "version": "1.5.0",
   "description": "webpack的统一配置，可应用不同的项目搭建",
   "files": [
     "lib",
