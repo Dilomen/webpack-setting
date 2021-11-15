@@ -4,7 +4,7 @@
 
 webpack@4 升级 到 webpack@5
 babel 相关依赖升级
-vue 和 react 自动识别
+serein-import.js 导入包名逻辑调整
 
 ## 1.4.7 _2021-07-21_
 
