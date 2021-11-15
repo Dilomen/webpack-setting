@@ -1,8 +1,19 @@
 # 更新日志
 
+## 1.5.0 _2021-11-15_
+
+webpack@4 升级 到 webpack@5
+babel 相关依赖升级
+vue 和 react 自动识别
+
+## 1.4.7 _2021-07-21_
+
+解决不能使用 React Hooks 的问题
+
 ## 1.3.7 _2021-03-13_
 
-修复ts执行找不到对应的node_modules依赖问题
+修复 ProvidePlugin 的 args 问题
+修复 ts 执行找不到对应的 node_modules 依赖问题
 
 ## 1.3.6 _2021-03-11_
 

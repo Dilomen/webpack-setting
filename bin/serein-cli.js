@@ -2,6 +2,7 @@
 const { Command } = require('commander')
 const program = new Command()
 const configPkg = require('../package.json')
+const fs = require('fs')
 const inquirer = require('inquirer')
 const path = require('path')
 const { execute } = require('../lib/util')
@@ -24,7 +25,10 @@ Examples:
   serein run
   serein run -e ./src/index.js
   serein build
-  serein build -f vue`
+  serein build -f vue
+  serein install --save-dev vue@3.0.0
+  serein dep
+  serein dep vue`
   )
 
 program
@@ -93,6 +97,15 @@ program
 program.parse(process.argv)
 
 function chooseFramework (options, fn) {
+  const sereinConfigPath = path.resolve(
+    process.cwd(),
+    options.config || './serein.config.js'
+  )
+  const isExist = fs.existsSync(sereinConfigPath)
+  if (isExist) {
+    const { config = {} } = require(sereinConfigPath)
+    options.framework = config.framework
+  }
   if (!options.framework) {
     inquirer.prompt([{
       type: 'list',

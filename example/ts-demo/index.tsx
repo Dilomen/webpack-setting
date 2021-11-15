@@ -1,9 +1,9 @@
 import ReactDOM from "react-dom";
 import React from "react";
-import HelloWorld from "./components/HelloWorld";
+import HelloWorld from "./HelloWorld";
 ReactDOM.render(
-  <div>
+  <button>
     <HelloWorld></HelloWorld>
-  </div>,
+  </button>,
   document.getElementById("root")
 );
