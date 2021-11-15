@@ -5,7 +5,7 @@ const configPkg = require('../package.json')
 const fs = require('fs')
 const inquirer = require('inquirer')
 const path = require('path')
-const { execute } = require('../lib/util')
+const { execute } = require('../lib/utils')
 
 program
   .version(configPkg.version || '1.0.0')
